@@ -1,0 +1,18 @@
+---
+import type { Game } from "~/lib/getGames";
+import Card from "./Card.astro";
+
+type Props = {
+  game: Game;
+};
+const { game } = Astro.props;
+const deckAmount = 8;
+---
+
+<div class="relative group transition-all p-8 max-w-sm cursor-pointer">
+  <Card
+    className={`bg-amber-200-200 flex items-center justify-center p-4 rounded-lg rotate-x-40 rotate-z-6 transform-3d left-0 w-64 h-96 shadow-lg group-hover:rotate-z-3 group-hover:-translate-y-6 group-hover:rotate-x-25 transition-all z-50`}
+  >
+    <p>{game.data.title}</p>
+  </Card>
+</div>

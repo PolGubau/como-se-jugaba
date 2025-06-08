@@ -1,14 +1,28 @@
+---
+import GradientVerticalBar from "~/components/Layout/GradientVerticalBar.astro";
+import BaseHead from "../components/BaseHead.astro";
+interface Props {
+	title?: string;
+	description?: string;
+	image?: string;
+}
+
+const { title, description, image } = Astro.props;
+---
+
 <!doctype html>
 <html lang="en">
 	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<BaseHead title={title} description={description} image={image} />
 	</head>
-	<body>
-		<slot />
+	<body class="w-dvw min-h-dvh flex justify-center">
+		<div class="grid max-w-4xl w-full grid-cols-[auto_1fr_auto]">
+			<GradientVerticalBar />
+			<div class="w-full pt-12 flex flex-col">
+				<slot />
+			</div>
+			<GradientVerticalBar />
+		</div>
 	</body>
 </html>
 

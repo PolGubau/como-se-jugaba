@@ -1,0 +1,17 @@
+---
+type Props = {
+  className?: string;
+  style?: string;
+};
+const { className, style } = Astro.props;
+---
+
+<div
+  style={style}
+  class:list={[
+    "aspect-[5/7] flex items-center justify-center p-4 rounded-lg ",
+    className,
+  ]}
+>
+  <slot />
+</div>

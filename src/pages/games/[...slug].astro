@@ -1,0 +1,38 @@
+---
+import { type CollectionEntry, getCollection, render } from "astro:content";
+import GradientHorizontalBar from "~/components/Layout/GradientHorizontalBar.astro";
+import Layout from "~/layouts/Layout.astro";
+import MdLayout from "~/layouts/MdLayout.astro";
+import { formatDate } from "~/lib/dates";
+
+export async function getStaticPaths() {
+  const posts = await getCollection("games");
+  return posts.map((post) => ({
+    params: { slug: post.id },
+    props: post,
+  }));
+}
+type Props = CollectionEntry<"games">;
+
+const game = Astro.props;
+
+const PAGE_TITLE = `Rules of ${game.data.title}}`;
+
+const { Content, headings } = await render(game);
+---
+
+<Layout title={PAGE_TITLE}>
+  <section class="relative flex flex-col gap-4 min-h-dvh" id="game-hero">
+    <header class="px-8 pt-8 pb-4 flex flex-col gap-2">
+      <p class="text-sm text-gray-500">
+        {formatDate(game.data.addedAt)}
+      </p>
+      <h1 class="text-3xl md:text-6xl font-bold">{game.data.title}</h1>
+      <p class="text-sm text-gray-500">{game.data.description}</p>
+    </header>
+    <GradientHorizontalBar />
+    <MdLayout headings={headings} backTo="/">
+      <Content />
+    </MdLayout>
+  </section>
+</Layout>

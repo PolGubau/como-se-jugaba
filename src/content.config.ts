@@ -11,9 +11,9 @@ const games = defineCollection({
     description: z.string().optional(),
     addedAt: z.coerce.date(),
 
-    tags: z.array(z.enum(['cards'])).optional(),
+    tags: z.array(z.enum(['cards', "poker", "españolas"])).optional(),
   })
 });
 
- 
+
 export const collections = { games };

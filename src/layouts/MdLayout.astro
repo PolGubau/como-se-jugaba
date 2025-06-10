@@ -76,14 +76,24 @@ const { headings, backTo } = Astro.props;
     </div>
   )
 }
-<div class="flex items-start gap-x-6">
+<div class="flex flex-col gap-4 px-8">
+  <nav class="flex items-center justify-between">
+    <a
+      title="Return Back"
+      href={"/"}
+      href-lang="en-us"
+      class="text-primary-800 hover:text-primary-700 cursor-pointer"
+    >
+      ← Back
+    </a>
+  </nav>
   <article
-    class="prose prose-quoteless prose-neutral dark:prose-invert w-full max-md:prose-sm p-4"
+    class="prose prose-quoteless prose-neutral dark:prose-invert w-full max-md:prose-sm"
   >
     <slot />
   </article>
 </div>
-<nav class="flex items-center justify-between mt-8 px-4">
+<nav class="flex pb-20 items-center justify-between mt-8 px-4">
   <a
     title="Return Back"
     href={backTo ?? "/"}

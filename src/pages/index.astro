@@ -4,15 +4,7 @@ import HomeHeader from "~/components/Layout/HomeHeader.astro";
 import Layout from "../layouts/Layout.astro";
 import { getGames } from "../lib/getGames";
 
-const games = [
-	...getGames(),
-	...getGames(),
-	...getGames(),
-	...getGames(),
-	...getGames(),
-	...getGames(),
-	...getGames(),
-];
+const games = getGames();
 ---
 
 <Layout>
@@ -20,7 +12,7 @@ const games = [
 	<div class="sticky top-[80px] md:top-[150px] z-10">
 		<GradientHorizontalBar />
 	</div>
-	<ul class="pt-8 gap-8 flex flex-col divide-y divide-primary-700/50">
+	<ul class="pt-8 gap-8 flex flex-col divide-y min-h-dvh divide-primary-700/50">
 		{
 			games.map((game) => (
 				<li class="">

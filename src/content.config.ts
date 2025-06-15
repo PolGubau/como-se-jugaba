@@ -6,13 +6,15 @@ import { glob } from 'astro/loaders';
 
 const games = defineCollection({
   loader: glob({ pattern: "**/*.{md,mdx}", base: "./src/content/games" }),
-  schema: z.object({
-    title: z.string(),
-    description: z.string().optional(),
-    addedAt: z.coerce.date(),
+  schema: ({ image }) =>
+    z.object({
+      title: z.string(),
+      description: z.string().optional(),
+      addedAt: z.coerce.date(),
+      coverImage: image(),
 
     tags: z.array(z.enum(['cards', "poker", "españolas"])).optional(),
-  })
+    })
 });
 
 

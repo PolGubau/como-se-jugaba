@@ -30,9 +30,11 @@
  }
 
 :root {
+  interpolate-size: allow-keywords;
   scroll-behavior: smooth;
   --background: var(--color-primary-50);
   --foreground: var(--color-primary-950);
+
 }
 
 @theme inline {

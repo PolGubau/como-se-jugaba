@@ -8,28 +8,49 @@ const { headings } = Astro.props;
 ---
 
 <details>
-  <summary>Table of contents</summary>
+  <summary>
+    <span> Table of contents </span>
+  </summary>
 
-  <aside>
-    <ul class="text-sm">
-      {
-        headings.map(({ depth, slug, text }) => (
-          <li class="hover:text-primary-800 line-clamp-1">
-            <a
-              href={`#${slug}`}
-              aria-label={`Scroll to section: ${text}`}
-              class:list={[
-                "block",
-                { "mt-2 opacity-95": depth <= 2 },
-                { "mt-1 pl-3 text-xs opacity-90": depth > 2 },
-              ]}
-            >
-              {text}
-              <span class="sr-only">Scroll to section: {text}</span>
-            </a>
-          </li>
-        ))
-      }
-    </ul>
-  </aside>
+  <ul class="text-sm">
+    {
+      headings.map(({ depth, slug, text }) => (
+        <li class="hover:text-primary-800 line-clamp-1">
+          <a
+            href={`#${slug}`}
+            aria-label={`Scroll to section: ${text}`}
+            class:list={[
+              "block",
+              { "mt-2 opacity-95": depth <= 2 },
+              { "mt-1 pl-3 text-xs opacity-90": depth > 2 },
+            ]}
+          >
+            {text}
+            <span class="sr-only">Scroll to section: {text}</span>
+          </a>
+        </li>
+      ))
+    }
+  </ul>
 </details>
+
+<style>
+  details {
+    overflow: hidden;
+  }
+  details::details-content {
+    block-size: 0;
+    transition:
+      block-size 0.2s ease-in-out,
+      content-visibility 0.2s ease-in-out;
+    transition-behavior: allow-discrete;
+  }
+  details[open]::details-content {
+    block-size: auto;
+  }
+  summary {
+    line-height: 1.3;
+    margin-inline-start: 1rem;
+    list-style-position: outside;
+  }
+</style>

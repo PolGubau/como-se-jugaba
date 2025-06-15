@@ -2,16 +2,26 @@
 title: Cuadrado
 description: El Cuadrado es un juego de cartas para reducir al máximo tu puntuación utilizando un mazo de póker.
 addedAt: 2025-06-08
+coverImage: ../../assets/cuadrado/portada.png
 tags: 
   - cards
   - poker
   - españolas
 ---
-
+import { Image } from 'astro:assets';
+import initial from '../../assets/cuadrado/initial.png';
 
 # El Cuadrado: Resumen del Juego de Cartas
+
 ## Introducción
-El Cuadrado es un juego de cartas para **reducir al máximo tu puntuación** utilizando un mazo de póker. Cada jugador comienza con **cuatro cartas ocultas** dispuestas en un cuadrado 2x2. Al inicio, solo puedes ver y memorizar dos de tus cartas, lo que añade un fuerte componente de memoria al juego.
+El Cuadrado es un juego de cartas para **reducir al máximo tu puntuación** utilizando un mazo de póker. Cada jugador comienza con **cuatro cartas ocultas** dispuestas en un cuadrado 2x2. 
+
+Al inicio, solo puedes ver y memorizar **dos de tus cartas**, recuérdalas bien porque no podrás volver a mirarlas.
+<figure>
+
+<Image src={initial} alt="Posición inicial del juego" class="w-full h-auto max-w-[250px]" />
+  <figcaption>Posición inicial del juego.</figcaption>
+</figure>
 
 ## Instrucciones básicas
 En tu turno, robas una carta de la pila principal. Puedes **descartarla** o **intercambiarla por una de tus cartas ocultas** para intentar mejorar tu mano. 

@@ -67,15 +67,7 @@ const { headings, backTo } = Astro.props;
   const observer = new IntersectionObserver(callback);
   observer.observe(targetHeader);
 </script>
-{
-  headings?.length && (
-    <div class="px-6">
-      <header class="px-4 py-2 border rounded-lg border-primary-700/50">
-        <Toc headings={headings} />
-      </header>
-    </div>
-  )
-}
+
 <div class="flex flex-col gap-4 px-8">
   <nav class="flex items-center justify-between">
     <a
@@ -87,6 +79,13 @@ const { headings, backTo } = Astro.props;
       ← Back
     </a>
   </nav>
+  {
+    headings?.length && (
+      <header class="px-4 py-2 border rounded-lg border-primary-700/50">
+        <Toc headings={headings} />
+      </header>
+    )
+  }
   <article
     class="prose prose-quoteless prose-neutral dark:prose-invert w-full max-md:prose-sm"
   >

@@ -1,4 +1,5 @@
 ---
+import { Image } from "astro:assets";
 import { type CollectionEntry, getCollection, render } from "astro:content";
 import GradientHorizontalBar from "~/components/Layout/GradientHorizontalBar.astro";
 import Layout from "~/layouts/Layout.astro";
@@ -16,22 +17,31 @@ type Props = CollectionEntry<"games">;
 
 const game = Astro.props;
 
-const PAGE_TITLE = `Rules of ${game.data.title}}`;
+const PAGE_TITLE = `Rules of ${game.data.title} | ¿Cómo se jugaba?`;
 
 const { Content, headings } = await render(game);
 ---
 
 <Layout title={PAGE_TITLE}>
   <section class="relative flex flex-col gap-4 min-h-dvh" id="game-hero">
-    <header class="px-8 pt-8 pb-4 flex flex-col gap-2">
-      
-      <p class="text-sm text-gray-500">
-        {formatDate(game.data.addedAt)}
-      </p>
-      <h1 class="text-3xl md:text-6xl font-bold">{game.data.title}</h1>
-      <p class="text-sm max-w-lg text-balance text-gray-500">
-        {game.data.description}
-      </p>
+    <header class="grid md:grid-cols-[1fr_auto] w-full">
+      <div class="px-8 pt-8 pb-4 flex flex-col gap-2 w-full">
+        <p class="text-sm text-gray-500">
+          {formatDate(game.data.addedAt)}
+        </p>
+        <h1 class="text-3xl md:text-6xl font-bold">{game.data.title}</h1>
+        <p class="text-sm max-w-lg text-balance text-gray-500">
+          {game.data.description}
+        </p>
+      </div>
+
+      <Image
+        src={game.data.coverImage}
+        alt={`Image of ${game.data.title}`}
+        class="w-full max-w-sm md:max-w-[200px] p-8"
+        width={650}
+        height={700}
+      />
     </header>
     <GradientHorizontalBar />
     <MdLayout headings={headings} backTo="/">

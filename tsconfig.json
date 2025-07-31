@@ -3,7 +3,7 @@
   "include": [
     ".astro/types.d.ts",
     "**/*"
-  ],
+, "src/content/games/.mdx"  ],
   "exclude": [
     "dist"
   ],

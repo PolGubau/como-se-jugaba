@@ -35,5 +35,5 @@ export const metadata = {
 		github: "http://github.com/polgubau/como-se-jugaba",
 		linkedin: "https://www.linkedin.com/in/polgubauamores/",
 	},
-	homeOgImage: "assets/thumbnail.png",
+	homeOgImage: "assets/thumbnail.webp",
 };

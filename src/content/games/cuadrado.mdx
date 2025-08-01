@@ -10,21 +10,33 @@ tags:
 ---
 import { Image } from 'astro:assets';
 import initial from '../../assets/cuadrado/initial.webp';
+import view from '../../assets/cuadrado/view.webp';
+import robar from '../../assets/cuadrado/robar.webp';
 
-# El Cuadrado: Resumen del Juego de Cartas
-
+ 
 ## Introducción
 El Cuadrado es un juego de cartas para **reducir al máximo tu puntuación** utilizando un mazo de póker. Cada jugador comienza con **cuatro cartas ocultas** dispuestas en un cuadrado 2x2. 
-
-Al inicio, solo puedes ver y memorizar **dos de tus cartas**, recuérdalas bien porque no podrás volver a mirarlas.
 <figure>
-
 <Image src={initial} alt="Posición inicial del juego" class="w-full h-auto max-w-[250px]" />
   <figcaption>Posición inicial del juego.</figcaption>
 </figure>
 
+
+Al inicio, solo puedes ver y memorizar **dos de tus cartas**, recuérdalas bien porque no podrás volver a mirarlas.
+ 
+
+<figure>
+<Image src={view} alt="Primera visualización del juego" class="w-full h-auto max-w-[250px]" />
+  <figcaption>Primera visualización del juego.</figcaption>
+</figure>
+
 ## Instrucciones básicas
 En tu turno, robas una carta de la pila principal. Puedes **descartarla** o **intercambiarla por una de tus cartas ocultas** para intentar mejorar tu mano. 
+
+<figure>
+<Image src={robar} alt="Intercambio de una carta por la pila de robo" class="w-full h-auto max-w-[250px]" />
+  <figcaption>Intercambio de una carta por la pila de robo.</figcaption>
+</figure>
 
 Algunas cartas tienen **efectos especiales**, pero solamente cuando te aparece en la pila principal y las descartas, estas son:
 - Los **Nueves (9)** (ver una de tus propias cartas).

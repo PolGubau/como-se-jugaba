@@ -9,7 +9,11 @@ tags:
   - españolas
 ---
 
-# 5 vidas: Manual del Juego
+import { Image } from 'astro:assets';
+
+import lastRound from '../../assets/5vidas/lastRound.webp';
+import mano from '../../assets/5vidas/mano.webp';
+
 
 ## Introducción
 
@@ -40,6 +44,13 @@ Para sobrevivir, deberás:
 1. Cada jugador comienza con **5 vidas**.
 2. Se baraja el mazo y se reparten **5 cartas a cada jugador** (boca abajo).
 3. Cada jugador **mira sus cartas** en secreto.
+
+
+<figure>
+<Image src={mano} alt="Mano de cartas de un jugador" class="w-full h-auto max-w-[350px]" />
+  <figcaption>Mano de cartas de un jugador.</figcaption>
+</figure>
+
 
 ---
 
@@ -110,6 +121,13 @@ Cuando solo se reparte **1 carta por jugador**:
 - Nadie puede mirar su carta.
 - Cada jugador se coloca la carta en la frente (o la deja visible a los demás sin mirarla).
 - Se procede a la **fase de apuestas normalmente**, viendo solo las cartas ajenas.
+
+
+<figure>
+<Image src={lastRound} alt="Ronda final del juego" class="w-full h-auto max-w-[250px]" />
+  <figcaption>Ronda final del juego.</figcaption>
+</figure>
+
 
 Reglas adicionales:
 
